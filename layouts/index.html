@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Welcome to MDFriday!</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #ffeb3b;
+            color: #333;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.8;
+        }
+
+        .confetti div {
+            width: 10px;
+            height: 10px;
+            background-color: #ff5722;
+            animation: fall 3s linear infinite;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 50%;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-50px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Call to Action */
+        .cta {
+            margin-top: 40px;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Section */
+        .footer {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .footer img {
+            width: 150px;
+            margin-top: 20px;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1rem;
+        }
+
+        .language-switcher a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!-- Language Switcher -->
+<div class="language-switcher">
+    {{ range .Site.Languages }}
+    <a href="{{ .Permalink }}">
+        {{ .Language.LanguageName }}
+    </a>
+    {{ end }}
+</div>
+
+<!-- Confetti Animation -->
+<div class="confetti">
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    {{ .Content }}
+    <div class="cta" onclick="{{ .Params.cta_url }}">
+        <span id="cta-text">{{ .Params.cta_title }}</span>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <a href="https://mdfriday.com"><img src="/mdfriday.svg" alt="MDFriday Logo"></a>
+</div>
+
+</body>
+</html>

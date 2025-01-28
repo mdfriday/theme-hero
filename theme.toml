@@ -1,0 +1,12 @@
+name = "MDFriday Hero"
+license = "MIT"
+licenselink = "https://github.com/mdfriday/theme-hero/blob/master/LICENSE.md"
+description = ""
+homepage = "https://mdfriday.com"
+tags = ["showcase"]
+features = ["hello"]
+min_version = "0.68.3"
+
+[author]
+  name = "Sun Wei"
+  homepage = "https://sunwei.xyz/"

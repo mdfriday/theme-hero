@@ -1,0 +1,10 @@
+baseURL = "/"
+defaultContentLanguage = "en"
+title = "MDFriday Hero"
+author = "MDFriday (mdfriday.com)"
+description = "Say hi to MDFriday"
+googleAnalytics = "GA-000000000-0"
+
+[module]
+    [[module.imports]]
+        path = "github.com/mdfriday/theme-hero"
