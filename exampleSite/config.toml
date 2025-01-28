@@ -8,3 +8,14 @@ googleAnalytics = "GA-000000000-0"
 [module]
     [[module.imports]]
         path = "github.com/mdfriday/theme-hero"
+
+[languages]
+[languages.en]
+languageName = 'English'
+contentDir = 'content.en'
+weight = 1
+
+[languages.zh]
+languageName = '中文'
+contentDir = 'content.zh'
+weight = 2

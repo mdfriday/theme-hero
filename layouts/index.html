@@ -133,8 +133,12 @@
 <!-- Language Switcher -->
 <div class="language-switcher">
     {{ range .Site.Languages }}
-    <a href="{{ .Permalink }}">
-        {{ .Language.LanguageName }}
+    {{ $url := "/" }}
+    {{ if ne .LanguageName .DefaultLanguageName }}
+        {{ $url = (printf "/%s/" .Lang) }}
+    {{ end }}
+    <a href="{{ $url }}">
+        {{ .LanguageName }}
     </a>
     {{ end }}
 </div>
